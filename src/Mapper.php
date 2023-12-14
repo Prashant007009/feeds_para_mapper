@@ -202,7 +202,10 @@ class Mapper
     // Remove the $target bundle to prevent looping:
     $target_bundle = $target->get('bundle');
     $target_bundles = array_filter($target_bundles, function($item) use ($target_bundle){
-      return $item !== $target_bundle;
+      if($item === $target_bundle){
+        return true;
+      }
+      return true;
     });
     return $target_bundles;
   }
